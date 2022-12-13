@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-# Install nginx on web server; Nginx should be listening on port 80
+# Script that configures a new Ubuntu machine to respect above requirements
 
-sudo apt-get -y update
-sudo apt-get -y install nginx
-
-echo "Holberton School" | sudo tee /var/www/html/index.html
-
+apt-get update
+apt-get install -y nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
 sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com\/;\\n\\t}/" /etc/nginx/sites-available/default
 
-sudo service nginx restart
+service nginx restart
