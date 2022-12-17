@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Script that configures a new Ubuntu machine to respect above requirements
 
-apt-get update
-apt-get install -y nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html
-sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com\/;\\n\\t}/" /etc/nginx/sites-available/default
-
-service nginx restart
+sudo apt-get -y update
+sudo apt-get install -y nginx
+sudo service nginx start
+sudo ufw allow 'Nginx HTTP'
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo service nginx restart
