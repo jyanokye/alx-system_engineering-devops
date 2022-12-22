@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # five lines or less
-sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
 sudo service nginx restart
