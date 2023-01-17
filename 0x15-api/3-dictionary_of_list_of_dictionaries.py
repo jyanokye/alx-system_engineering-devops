@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""for an employee ID, returns information about his/her 
+"""
 TODO list progress."""
 import json
 import requests
