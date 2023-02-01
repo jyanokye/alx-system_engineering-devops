@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-number of the subs
+number of subs
 """
 
 import requests
